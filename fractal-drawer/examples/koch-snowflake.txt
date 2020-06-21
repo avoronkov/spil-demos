@@ -1,0 +1,7 @@
+; Koch snowflake
+("axiom" "F--F--F")
+("rules" (
+		  ("F" "F+F--F+F")))
+("iters" 4)
+("angle" 60.0)
+; vim:ft=lisp

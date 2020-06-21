@@ -1,0 +1,8 @@
+; Quadratic Koch island
+("axiom""F+F+F+F")
+("rules" (
+		  ("F" "F-F+F+FFF-F-F+F")))
+;; top: 4
+("iters" 3)
+("angle" 90.0)
+; vim:ft=lisp

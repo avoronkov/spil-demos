@@ -1,0 +1,7 @@
+; Vicsek fractal
+("axiom" "F-F-F-F")
+("rules" (("F" "F-F+F+F-F")))
+; TOP: 6
+("iters" 4)
+("angle" 90.0)
+; vim: ft=lisp

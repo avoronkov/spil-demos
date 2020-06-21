@@ -1,2 +1,6 @@
 github.com/avoronkov/spil v0.1.0 h1:D73T4iPb7EhFAyUuZKhdGXnGLv6ZVr0jbG9Em9SJ8nY=
 github.com/avoronkov/spil v0.1.0/go.mod h1:ZEXYATFJlkV+kCfGQBtwHsCwzeTmMm2zjtRDApWfdcA=
+github.com/avoronkov/spil v0.1.1 h1:aYlLDyHL2BbzEWKM5/+2Pp/PXVqmShXFEastab2+fYE=
+github.com/avoronkov/spil v0.1.1/go.mod h1:ZEXYATFJlkV+kCfGQBtwHsCwzeTmMm2zjtRDApWfdcA=
+github.com/avoronkov/spil v0.1.2 h1:Uw6EItbWq5clb3HT4nZKyYtO4H2eaDn4Yis6chbN3dg=
+github.com/avoronkov/spil v0.1.2/go.mod h1:ZEXYATFJlkV+kCfGQBtwHsCwzeTmMm2zjtRDApWfdcA=

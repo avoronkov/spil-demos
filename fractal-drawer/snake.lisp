@@ -64,4 +64,4 @@
 (def canvas-size (snake:list[point] offset) :list[int]
 	 (set mx (padd (maximum-point snake) (point offset offset)))
 	 ; (print "canvas-size:" mx snake)
-	 (list (int (px mx)) (int (py mx))))
+	 (list (inc (int (px mx))) (int (py mx))))

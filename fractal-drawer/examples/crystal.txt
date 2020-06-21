@@ -1,0 +1,8 @@
+; Crystal
+("axiom" "F+F+F+F")
+("rules" (
+		("F" "FF+F++F+F")))
+; TOP: 6
+("iters" 3)
+("angle" 90.0)
+; vim: ft=lisp

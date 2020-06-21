@@ -1,0 +1,7 @@
+; Board
+("axiom" "F+F+F+F")
+("rules" (("F" "FF+F+F+F+FF")))
+; TOP: 5
+("iters" 3)
+("angle" 90.0)
+; vim:ft=lisp
