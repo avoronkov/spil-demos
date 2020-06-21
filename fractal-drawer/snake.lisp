@@ -27,14 +27,14 @@
 
 ;; draw-snake
 (def draw-snake (d:drawer s:list[point])
-	 (draw-snake d (head s) (tail s)))
-(def draw-snake (d:drawer p:point '()) '())
-(def draw-snake (d:drawer p:point s:list[point])
-	 (set color (rgb 225 225 255))
+	 (draw-snake d (head s) 1 (length s) (tail s)))
+(def draw-snake (d:drawer p:point cur:int tot:int '()) '())
+(def draw-snake (d:drawer p:point cur:int tot:int s:list[point])
+	 (set color (color-of cur tot))
 	 (set h (head s))
 	 (set t (tail s))
 	 (draw.line d (pxint p) (pyint p) (pxint h) (pyint h) color)
-	 (draw-snake d h t))
+	 (draw-snake d h (inc cur) tot t))
 
 (def min (a:float b:float) :float
 	 (if (< a b) a b))
@@ -65,3 +65,15 @@
 	 (set mx (padd (maximum-point snake) (point offset offset)))
 	 ; (print "canvas-size:" mx snake)
 	 (list (inc (int (px mx))) (int (py mx))))
+
+;; gradient color
+(def color-of (total:int total:int) :rgb (rgb 255 0 0))
+(def color-of (i:int total:int) :rgb
+     (set l (/ total 3))
+     (set sec (/ (- i 1) l))
+     (set pos (mod (- i 1) l))
+     (if (= sec 0)
+       (rgb (- 255 (/ (* 255 pos) l)) (/ (* 255 pos) l) 0)
+       (if (= sec 1)
+         (rgb 0 (- 255 (/ (* 255 pos) l)) (/ (* 255 pos) l))
+         (rgb (/ (* 255 pos) l) 0 (- 255 (/ (* 255 pos) l))))))
