@@ -1,36 +1,6 @@
-#!/usr/bin/env spil
-(use std)
+; (use std)
+(use "point.lisp")
 (use "lib/drawer.lisp")
-
-
-;; point
-(deftype :point :list[float])
-
-(def point (x:float y:float) :point
-	 (list x y) :point)
-
-(def px (p:point) :float (head p) :float)
-(def py (p:point) :float (head (tail p)) :float)
-
-(def pxint (p:point) :int (int (+ (head p) 0.5)))
-(def pyint (p:point) :int (int (+ (head (tail p)) 0.5)))
-
-(def padd (p1:point p2:point) :point
-	 (point (+ (px p1) (px p2)) (+ (py p1) (py p2))))
-
-(def psub (p1:point p2:point) :point
-	 (point (- (px p1) (px p2)) (- (py p1) (py p2))))
-
-
-
-;; angle is in degrees (!)
-(def rotate (dir:point angle:float) :point
-	 (set x (px dir))
-	 (set y (py dir))
-	 (set sina (sin (/ (* 3.1416 angle) 180.0)))
-	 (set cosa (cos (/ (* 3.1416 angle) 180.0)))
-	 (point (- (* x cosa) (* y sina)) (+ (* x sina) (* y cosa))))
-
 
 ;; make-snake
 (def make-snake (moves:str angle:float dir:point) :list[point]
@@ -93,23 +63,5 @@
 
 (def canvas-size (snake:list[point] offset) :list[int]
 	 (set mx (padd (maximum-point snake) (point offset offset)))
-	 (print "canvas-size:" mx snake)
+	 ; (print "canvas-size:" mx snake)
 	 (list (int (px mx)) (int (py mx))))
-
-(set moves "F-F+F+F-F")
-(set angle 90.0)
-(set dir (point 10.0 0.0))
-
-(print (type angle))
-
-(set snake (make-snake moves angle dir))
-(set nsnake (normalize-snake snake 10.0))
-(set size (canvas-size nsnake 10.0))
-
-(print "minimal:" (minimum-point snake))
-(print "normalized:" nsnake)
-
-(print "size:" size)
-
-(set' drawer (drawer.new "example.png" (inc (first size)) (second size)))
-(draw-snake drawer nsnake)
